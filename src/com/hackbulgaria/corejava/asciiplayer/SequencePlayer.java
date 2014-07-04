@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class SequencePlayer extends FilePlayer {
+	public static final long SLEEP_MS = 50;
 	protected List<BufferedImage> sequence;
 	
 	public SequencePlayer(List<BufferedImage> _sequence) {
@@ -25,10 +26,10 @@ public abstract class SequencePlayer extends FilePlayer {
 		return enc_sequence;
 	}
 	
-	public void play() {
+	public void play(long sleep_ms) {
 		for (BufferedImage item: sequence) {
 			try {
-				Thread.sleep(50);
+				Thread.sleep(sleep_ms);
 			} catch (InterruptedException e) {
 				System.out.println("OOPS! Something went terribly wrong while sleeping between frames.");
 				Thread.currentThread().interrupt();
@@ -36,5 +37,9 @@ public abstract class SequencePlayer extends FilePlayer {
 			
 			(new ImagePlayer(item)).play();
 		}
+	}
+	
+	public void play() {
+		play(SLEEP_MS);
 	}
 }
