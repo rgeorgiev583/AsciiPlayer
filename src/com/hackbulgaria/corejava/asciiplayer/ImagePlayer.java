@@ -95,7 +95,7 @@ public class ImagePlayer extends FilePlayer {
 				art += getAsciiPixel(j, i, j + blockWidth < width ? blockWidth : width - j, i + blockHeight < height ? blockHeight : height - i);
 			}
 			
-			art += newline;
+			art += NEWLINE;
 		}
 		
 		return art;

@@ -7,7 +7,7 @@ import java.io.IOException;
  * Created by kimusubi on 14-7-3.
  */
 public abstract class FilePlayer implements IPlayer {
-	protected static final String newline = System.getProperty("line.separator");
+	protected static final String NEWLINE = System.getProperty("line.separator");
     protected File file;
 
     public FilePlayer() {
